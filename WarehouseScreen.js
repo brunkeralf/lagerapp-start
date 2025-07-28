@@ -1,23 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-const WarehouseScreen = () => {
+export default function WarehouseScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Här kommer lageröversikten.</Text>
+      <Text style={styles.title}>Lada 3</Text>
+      <Button
+        title="Fack 1"
+        onPress={() => navigation.navigate('Fack')}
+      />
     </View>
   );
-};
-
-export default WarehouseScreen;
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
+    padding: 16,
   },
-  text: {
-    fontSize: 18,
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
   },
 });
