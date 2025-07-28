@@ -1,49 +1,41 @@
-import React, { useState } from 'react';
-import { View, Text, Button, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Button, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 
-export default function CompartmentScreen() {
-  const [articles, setArticles] = useState([
-    { id: '1', name: '546 Light', quantity: 4 },
-    { id: '2', name: 'Skruv M8', quantity: 10 },
-  ]);
+export default function CompartmentScreen({ navigation, route }) {
+  const [articles, setArticles] = useState([]);
 
-  const addArticle = () => {
-    // Här lägger vi till ny artikel – just nu hårdkodat som exempel
-    const newId = (articles.length + 1).toString();
-    const newArticle = { id: newId, name: `Artikel ${newId}`, quantity: 1 };
-    setArticles([...articles, newArticle]);
-  };
+  useEffect(() => {
+    if (route.params?.newArticle) {
+      setArticles(prev => [...prev, route.params.newArticle]);
+    }
+  }, [route.params?.newArticle]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Fack 1 – Innehåll</Text>
-
-      <FlatList
-        data={articles}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <TouchableOpacity style={styles.article}>
-            <Text style={styles.articleText}>{item.name} – {item.quantity} kolli</Text>
+      <Text style={styles.title}>Artiklar i facket</Text>
+      <ScrollView style={{ flex: 1 }}>
+        {articles.map((article, index) => (
+          <TouchableOpacity key={index} style={styles.articleButton}>
+            <Text style={styles.articleText}>{article.name}</Text>
           </TouchableOpacity>
-        )}
+        ))}
+      </ScrollView>
+      <Button
+        title="LÄGG TILL"
+        onPress={() => navigation.navigate('Lägg till artikel')}
       />
-
-      <View style={styles.addButton}>
-        <Button title="LÄGG TILL" onPress={addArticle} />
-      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 20 },
-  title: { fontSize: 22, marginBottom: 20 },
-  article: {
-    backgroundColor: '#eee',
+  title: { fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
+  articleButton: {
     padding: 15,
+    backgroundColor: '#eee',
     borderRadius: 8,
     marginBottom: 10,
   },
   articleText: { fontSize: 16 },
-  addButton: { marginTop: 20 },
 });
