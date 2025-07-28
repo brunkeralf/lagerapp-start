@@ -7,7 +7,7 @@ import WarehouseScreen from './WarehouseScreen';
 import AdminScreen from './AdminScreen';
 import CompartmentScreen from './CompartmentScreen';
 const Stack = createNativeStackNavigator();
-
+import AddArticleScreen from './AddArticleScreen';
 export default function App() {
   return (
     <NavigationContainer>
