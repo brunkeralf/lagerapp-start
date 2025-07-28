@@ -16,7 +16,8 @@ export default function App() {
         <Stack.Screen name="Sök lager" component={SearchScreen} />
         <Stack.Screen name="Gå till lager" component={WarehouseScreen} />
         <Stack.Screen name="Inställningar/Admin" component={AdminScreen} />
-      </Stack.Navigator>
+<Stack.Screen name="Compartment" component={CompartmentScreen} />
+<Stack.Screen name="Lägg till artikel" component={AddArticleScreen} />      </Stack.Navigator>
     </NavigationContainer>
   );
 }
