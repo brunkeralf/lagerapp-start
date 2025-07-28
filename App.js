@@ -5,7 +5,7 @@ import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchScreen';
 import WarehouseScreen from './WarehouseScreen';
 import AdminScreen from './AdminScreen';
-
+import CompartmentScreen from './CompartmentScreen';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
