@@ -1,23 +1,27 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, FlatList, Text, StyleSheet } from 'react-native';
 
-const SearchScreen = () => {
+export default function SearchScreen() {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+
+  const mockData = [
+    { name: '546 Light', note: 'Till Coralli' },
+    { name: 'Bolt 12mm', note: 'Skruv till PK4' },
+    { name: 'Rörkoppling', note: 'Används i Nav 6–7' },
+  ];
+
+  const handleSearch = (text) => {
+    setQuery(text);
+    const filtered = mockData.filter(
+      (item) =>
+        item.name.toLowerCase().includes(text.toLowerCase()) ||
+        item.note.toLowerCase().includes(text.toLowerCase())
+    );
+    setResults(filtered);
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Här söker du i lagret.</Text>
-    </View>
-  );
-};
-
-export default SearchScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 18,
-  },
-});
+      <TextInput
+        placeholder
