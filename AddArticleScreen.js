@@ -12,10 +12,13 @@ export default function AddArticleScreen({ navigation, route }) {
       return;
     }
 
-    // Här ska artikeln egentligen sparas i lagret eller skickas tillbaka
-    console.log('Ny artikel:', { name, quantity, note });
+    const article = {
+      name,
+      quantity: parseInt(quantity) || 0,
+      note,
+    };
 
-    // Tillbaka till facket efter sparning
+    route.params?.onSave?.(article);
     navigation.goBack();
   };
 
@@ -23,28 +26,27 @@ export default function AddArticleScreen({ navigation, route }) {
     <View style={styles.container}>
       <Text style={styles.label}>Artikelnamn *</Text>
       <TextInput
-        style={styles.input}
-        placeholder="Ange artikelnamn"
         value={name}
         onChangeText={setName}
+        placeholder="Ex: 546 Light"
+        style={styles.input}
       />
 
       <Text style={styles.label}>Antal kolli</Text>
       <TextInput
-        style={styles.input}
-        placeholder="Ange antal"
-        keyboardType="numeric"
         value={quantity}
         onChangeText={setQuantity}
+        keyboardType="numeric"
+        placeholder="Ex: 10"
+        style={styles.input}
       />
 
       <Text style={styles.label}>Anteckning</Text>
       <TextInput
-        style={[styles.input, { height: 80 }]}
-        placeholder="Valfri anteckning"
-        multiline
         value={note}
         onChangeText={setNote}
+        placeholder="Ex: Till PK4"
+        style={styles.input}
       />
 
       <Button title="SPARA" onPress={handleSave} />
@@ -53,13 +55,19 @@ export default function AddArticleScreen({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 20 },
-  label: { fontWeight: 'bold', marginTop: 15 },
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  label: {
+    fontWeight: 'bold',
+    marginTop: 15,
+  },
   input: {
     borderWidth: 1,
     borderColor: '#ccc',
+    borderRadius: 5,
     padding: 10,
     marginTop: 5,
-    borderRadius: 5,
   },
 });
