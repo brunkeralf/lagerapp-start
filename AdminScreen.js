@@ -1,23 +1,23 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const AdminScreen = () => {
+export default function AdminScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Inställningar och adminpanel.</Text>
+      <Text style={styles.title}>Admin / Inställningar</Text>
+      <Text>Här kan du lägga till inställningar senare.</Text>
     </View>
   );
-};
-
-export default AdminScreen;
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 20,
   },
-  text: {
-    fontSize: 18,
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
 });
