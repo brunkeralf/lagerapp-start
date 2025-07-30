@@ -1,7 +1,12 @@
 {
+  "cli": {
+    "version": ">= 7.0.0"
+  },
   "build": {
-    "android": {
-      "distribution": "internal"
+    "production": {
+      "android": {
+        "buildType": "apk"
+      }
     }
   }
 }
