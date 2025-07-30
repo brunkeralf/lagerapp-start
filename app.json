@@ -6,12 +6,10 @@
     "sdkVersion": "53.0.0",
     "platforms": ["android"],
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "android": {
-      "package": "com.ralf.brunke.lagerapp"
-    }
+    "assetBundlePatterns": ["**/*"]
   }
 }
