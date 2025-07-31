@@ -32,3 +32,4 @@ jobs:
           name: app-debug.apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
 # Trigger rebuild efter rensning
+# Trigger build efter rensning av extra-mapp
