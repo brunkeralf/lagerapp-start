@@ -18,19 +18,3 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Expo CLI
-        run: npm install -g expo-cli
-
-      - name: Build APK
-        run: |
-          npx expo install
-          npx expo export --dev --output-dir dist
-          npx expo prebuild
-          npx eas build --platform android --profile preview --non-interactive
-        env:
-          EAS_BUILD_PROFILE: preview
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
