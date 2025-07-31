@@ -11,10 +11,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Expo CLI
+        run: npm install -g expo-cli
+
+      - name: Build APK
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          npx expo export --platform android
+          npx expo export:embed
+          npx eas build -p android --profile preview --non-interactive --local
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: lagerapp.apk
+          path: dist/**/*.apk
