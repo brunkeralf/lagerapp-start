@@ -6,3 +6,4 @@ Startskärm med tre val: Sök lager, Gå till lager, Inställningar.
 Körs med:
 - React Navigation
 - Expo
+trigger build
