@@ -1,0 +1,3 @@
+rootProject.name = 'lagerappstart'
+
+include ':app'
