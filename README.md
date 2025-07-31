@@ -1,4 +1,4 @@
-# Lagerapp-start
+[# Lagerapp-start
 
 Ett litet React Native-projekt byggt för Expo.  
 Startskärm med tre val: Sök lager, Gå till lager, Inställningar.
@@ -9,3 +9,4 @@ Körs med:
 trigger build
 Bygg-test den 31 juli
 <!-- Trigger build 2 -->
+<!-- Trigger build 3 -->
