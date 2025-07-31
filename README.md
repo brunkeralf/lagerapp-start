@@ -2,7 +2,7 @@
 
 Ett litet React Native-projekt byggt för Expo.  
 Startskärm med tre val: Sök lager, Gå till lager, Inställningar.
-
+trigger
 Körs med:
 - React Navigation
 - Expo
