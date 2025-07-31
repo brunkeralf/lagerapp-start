@@ -7,3 +7,4 @@ Körs med:
 - React Navigation
 - Expo
 trigger build
+Bygg-test den 31 juli
