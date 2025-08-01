@@ -10,3 +10,4 @@ trigger build
 Bygg-test den 31 juli
 <!-- Trigger build 2 -->
 <!-- Trigger build 3 -->
+# Testbygg för APK
