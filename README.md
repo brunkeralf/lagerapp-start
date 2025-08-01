@@ -13,3 +13,4 @@ Bygg-test den 31 juli
 # Testbygg för APK
 testar ny workflow
 testar igen
+testar än en gång
