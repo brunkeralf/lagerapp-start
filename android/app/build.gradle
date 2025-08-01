@@ -1,24 +1,28 @@
 apply plugin: "com.android.application"
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    namespace "com.lagerapp"
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.lagerapp"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
     }
 
     buildTypes {
         release {
+            shrinkResources false
             minifyEnabled false
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
 }
 
 dependencies {
-    implementation "com.facebook.react:react-native:+"
+    implementation("com.facebook.react:react-native:0.73.4") {
+        exclude group: "com.facebook.fbjni"
+    }
 }
