@@ -12,3 +12,4 @@ Bygg-test den 31 juli
 <!-- Trigger build 3 -->
 # Testbygg för APK
 testar ny workflow
+testar igen
